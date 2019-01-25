@@ -1,0 +1,45 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-items">
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a>Stocks</a></li>
+        <li><a>Prices</a></li>
+      </ul>
+    </div>
+    <img src="../../assets/logo.png" width="30" height="30"/><span class="brand">Stocking Monkey</span>
+  </div>
+</nav>
+<section class="section1 container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="filter">
+        <p class="filter-text">Quick Filter</p>
+        <select (change)="selectRange($event.target.value)">
+          <option disabled>Sort By</option>
+          <option value="high">High Value</option>
+          <option value="low">Low Value</option>
+          <option value="open">Open Value</option>
+          <option value="close">Close Value</option>
+          <option value="volume">Volume</option>
+        </select>
+      </div>
+      <div class="stock" *ngFor="let stocks of stockData | paginate: {itemsPerPage: 18, currentPage: p }">
+          <p class="stock-year"><strong>Stock Year:-</strong> {{stocks.date | date : "yyyy-MM-dd"}} <span style="float: right;cursor: pointer;" (click)="getSymbol(stocks.symbol)"><strong>{{stocks.symbol}}</strong></span></p>
+          <div class="stock-prices">
+            <span><strong>High -</strong> {{stocks.high}}</span><br>
+            <span><strong>Low -</strong> {{stocks.low}}</span>
+          </div>
+          <div class="stock-variation">
+            <span><strong>Open -</strong> {{stocks.open}}</span><br>
+            <span><strong>Close -</strong> {{stocks.close}}</span>
+          </div>
+          <p class="volume"><strong>Volume -</strong> {{stocks.volume}} <span style="float: right;cursor: pointer;"><a routerLink="../stock/{{stocks.date | date: 'yyyy-MM-dd'}}" class="details"><strong>See details</strong></a></span></p>
+      </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)" class="pagination"></pagination-controls>
+</section>
+<footer class="footer">
+    <p class="footer-message">Made with Angular 7, NodeJS - Express and MongoDB</p>
+</footer>

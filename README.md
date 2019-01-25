@@ -2,26 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
-## Development server
+## To run the front end:- 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1) open the folder 'stocks' in terminal and run the command 'npm i' to install all the dependencies.
+2) run the command 'ng serve' to serve the front end on the browser and open http://localhost:4200.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## To run the backend:-
 
-## Build
+1) open the folder 'stocks/backend' in terminal and run the command 'npm i' to install all the dependencies.
+2) change directory into 'app' and run the command 'node index.js' to run the backend service. 
+3) default port for backend is 3000. To see the documentation for the backend API's, open the folder 'apidoc' and open file 'index.html' in the browser.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Features of app:-
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1) default dashboard view which consists of limited stocks initially, but as the user changes the current page, API is called 
+to serve more and more stocks on the page.
+2) On clicking 'see details' on a particular stock, another view with the variation of stock price in 'high', 'low', 'open' and 'close'
+are shown in a line chart.
+3) on clicking the symbol on top right corner on a particular stock, it shows stocks with only that symbol.
+4) filter options are provided on top left corner, it shows stocks with decreasing values of any particular option.

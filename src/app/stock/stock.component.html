@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-items">
+      <ul>
+        <li><a routerLink="../../dashboard">Home</a></li>
+        <li><a>Stocks</a></li>
+        <li><a>Prices</a></li>
+      </ul>
+    </div>
+    <img src="../../assets/logo.png" width="30" height="30"/><span class="brand">Stocking Monkey</span>
+  </div>
+</nav>
+<section class="section1 container-fluid">
+    <div class="row">
+      <div class="col-lg-9">
+          <div class="filter">
+              <p class="filter-text">Values of Stock price variation for the date - {{date}}</p>
+              <p>Volume of stocks - {{stockData.volume}}</p>
+            </div>
+          <canvas baseChart
+          [data]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [chartType]="lineChartType"></canvas>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
+  <p class="footer-message">Made with Angular 7, NodeJS - Express and MongoDB</p>
+</footer>
